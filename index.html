@@ -4,25 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>May — Senior Product Designer</title>
-<meta name="description" content="Portfolio of May, senior product designer. Side projects, selected work, about, contact.">
+<meta name="description" content="Portfolio of May, senior product designer. Selected work, side projects, about, contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ============ a11y-starter.css · 无障碍地基 (inline, v1.0) ============ */
+/* ============ a11y-starter.css · 无障碍地基 (v1.0, 配色已换 fuller 视觉) ============ */
 :root {
-  --bg: #141311;
-  --ink: #f4efe6;        /* 正文, ~15:1 */
-  --muted: #b3a893;      /* 次要文字, ~7.5:1, ≥4.5:1 ✓ */
-  --accent: #e2703a;     /* 主色, ~7:1 ✓ */
-  --focus: #8fbcff;      /* 焦点环, 深色底上 ≥3:1 ✓ */
-  --card: #1d1c19;
-  --line: #35322b;       /* 仅装饰线 */
-  --chip: #26241f;
+  --bg:     #f4ede2;   /* 暖米油 cream, fuller 画布 */
+  --bg-soft:#ece1d2;
+  --ink:    #0b0b0b;    /* 正文, ~16:1 ✓ */
+  --muted:  #5d564b;    /* 次要文字, ~6.8:1 ✓ */
+  --accent: #a50000;    /* 标志红, cream 上 ~7.6:1 ✓ / 白字在红上 ~7.9:1 ✓ */
+  --accent-deep: #7d0000;
+  --focus:  #0b5bd3;    /* 焦点环蓝, cream 上 ~7:1 ✓ */
+  --dark:   #0b0b0b;    /* 深色区块 */
+  --card-blue:   #2b1a8e;
+  --card-red:    #b30000;
+  --card-yellow: #f2d024;
+  --card-pale:   #e6dccb;
+  --line:   #d8cbb6;    /* 仅装饰线 */
+  --radius: 2rem;       /* fuller 式大圆角 */
 }
 a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
   outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px;
 }
+.on-dark a:focus-visible, .on-dark button:focus-visible { outline-color: #ffffff; }
 .skip-link {
   position: absolute; left: 1rem; top: -4.5rem; z-index: 100;
-  background: var(--ink); color: #141311; text-decoration: none; font-weight: 600;
+  background: var(--ink); color: #fff; text-decoration: none; font-weight: 700;
   padding: 0.65rem 1.2rem; border-radius: 0.6rem; transition: top 0.18s ease;
 }
 .skip-link:focus { top: 1rem; }
@@ -34,116 +44,185 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 button, a, summary { min-height: 24px; min-width: 24px; }
-nav a, .btn, .motion-toggle { min-height: 44px; }
+nav a, .btn, .pill-link, .motion-toggle { min-height: 44px; }
 @media (forced-colors: active) {
   a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid Highlight; }
-  .btn, .project { border: 1px solid ButtonText; }
+  .btn, .card, .project { border: 1px solid ButtonText; }
 }
 html { scroll-behavior: smooth; }
 
-/* ============ 站点样式 (盖在地基上) ============ */
+/* ============ 站点样式 · fuller 视觉语言 ============ */
 * { box-sizing: border-box; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6; font-size: 1.05rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55; font-size: 1.05rem;
+  -webkit-font-smoothing: antialiased;
 }
-.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+.wrap { max-width: 76rem; margin: 0 auto; padding: 0 1.5rem; }
 
+/* ---- 顶栏: 纤细, logo 左 / nav 中 / 红色 pill 右 ---- */
 header.site {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(20,19,17,0.92); backdrop-filter: blur(8px);
+  background: rgba(244,237,226,0.92); backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
-header.site .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; padding-bottom: 0.75rem; }
-.logo { font-weight: 700; letter-spacing: 0.08em; text-decoration: none; color: var(--ink); }
-nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
-nav a { color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; }
-nav a:hover { color: var(--ink); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.logo { font-weight: 900; letter-spacing: 0.06em; text-decoration: none; color: var(--ink); font-size: 1.15rem; }
+nav ul { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; }
+nav a:hover { color: var(--accent); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; font-weight: 700; font-size: 0.95rem;
+  text-decoration: none; padding: 0.6rem 1.4rem; border-radius: 99px; border: none; cursor: pointer;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
 
-.hero { padding: 6rem 0 4rem; }
-.hero .kicker { color: var(--accent); font-size: 0.85rem; letter-spacing: 0.14em; margin: 0 0 1rem; }
-.hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.12; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
-.hero p { color: var(--muted); max-width: 44rem; margin: 0; }
+/* ---- Hero: 海报式大标题 + 几何图形 ---- */
+.hero { position: relative; overflow: hidden; padding: 5.5rem 0 5rem; text-align: center; }
+.hero .kicker {
+  display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em;
+  color: var(--accent); margin: 0 0 1.5rem;
+}
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 900; line-height: 1.02;
+  letter-spacing: -0.03em; margin: 0 0 1.5rem; text-wrap: balance;
+}
+.hero p { color: var(--muted); max-width: 42rem; margin: 0 auto; font-size: 1.1rem; }
+.hero .geo { position: absolute; pointer-events: none; }
+.hero .ring {
+  width: min(34rem, 80vw); aspect-ratio: 1; border-radius: 50%;
+  border: clamp(18px, 3vw, 34px) solid var(--accent);
+  right: -10rem; top: -8rem; opacity: 0.9;
+}
+.hero .dot {
+  width: 5.5rem; aspect-ratio: 1; border-radius: 50%;
+  background: var(--card-yellow); left: 6%; bottom: 8%;
+}
 .placeholder-note {
-  display: inline-block; margin-top: 1rem; padding: 0.4rem 0.9rem;
-  border: 1px dashed var(--line); border-radius: 99px;
-  color: var(--muted); font-size: 0.85rem;
+  display: inline-block; margin-top: 1.25rem; padding: 0.4rem 0.9rem;
+  border: 1.5px dashed var(--muted); border-radius: 99px;
+  color: var(--muted); font-size: 0.82rem; font-weight: 600;
 }
 
-section.block { padding: 4rem 0; border-top: 1px solid var(--line); }
-.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 2.5rem; }
-.section-head h2 { font-size: 1.6rem; margin: 0; letter-spacing: -0.01em; }
-.section-head .sub { color: var(--muted); font-size: 0.95rem; margin: 0; }
+/* ---- 通用区块头: 小标签 + 大标题 ---- */
+section.block { padding: 4.5rem 0; }
+.section-label {
+  font-size: 0.8rem; font-weight: 800; letter-spacing: 0.2em;
+  color: var(--accent); margin: 0 0 0.75rem;
+}
+.section-head h2 {
+  font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 900;
+  letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 0.75rem;
+}
+.section-head .sub { color: var(--muted); margin: 0 0 2.5rem; font-size: 1.05rem; }
 
-/* --- side project 条目 (aspenlab DEMO 结构) --- */
-.projects { list-style: none; margin: 0; padding: 0; }
+/* ---- Work: 大圆角彩色卡片 ---- */
+.work-grid { display: grid; gap: 1.5rem; }
+.work-card {
+  border-radius: var(--radius); padding: clamp(2rem, 4vw, 3.5rem);
+  display: grid; grid-template-columns: auto 1fr; gap: 0 2rem; align-items: start;
+  min-height: 14rem; position: relative; overflow: hidden;
+}
+.work-card .bignum {
+  font-size: clamp(3.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1;
+  letter-spacing: -0.03em; opacity: 0.9;
+}
+.work-card h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; margin: 0.25rem 0 0.6rem; }
+.work-card p { margin: 0; font-size: 1rem; max-width: 40rem; }
+.work-card.c-red    { background: var(--card-red); color: #fff; }
+.work-card.c-blue   { background: var(--card-blue); color: #fff; }
+.work-card.c-yellow { background: var(--card-yellow); color: var(--ink); }
+.work-card.c-red p, .work-card.c-blue p { color: rgba(255,255,255,0.82); }
+.work-card.c-yellow p { color: #3d3a2e; }
+
+/* ---- Side projects: 彩色大卡片列表 ---- */
+.projects { display: grid; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
 .project {
-  display: grid; grid-template-columns: 3.5rem 1fr; gap: 0 1.5rem;
-  padding: 2rem 0; border-top: 1px solid var(--line);
+  border-radius: var(--radius); padding: clamp(2rem, 4vw, 3.25rem);
+  display: grid; grid-template-columns: auto 1fr; gap: 0 2rem;
+  position: relative; overflow: hidden;
 }
-.projects .project:last-child { border-bottom: 1px solid var(--line); }
-.project .num { color: var(--muted); font-size: 0.95rem; padding-top: 0.2rem; }
-.project .hook { color: var(--accent); font-size: 0.82rem; letter-spacing: 0.12em; margin: 0 0 0.4rem; }
-.project h3 { margin: 0 0 0.5rem; font-size: 1.45rem; letter-spacing: -0.01em; }
-.project .desc { color: var(--muted); margin: 0 0 1rem; max-width: 46rem; }
-.project .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.project .bignum {
+  font-size: clamp(2.75rem, 5vw, 4.25rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em;
+}
+.project .hook { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.18em; margin: 0.35rem 0 0.5rem; opacity: 0.85; }
+.project h3 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 0.75rem; }
+.project .desc { margin: 0 0 1.4rem; max-width: 44rem; font-size: 1.02rem; }
+.project .meta { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.5rem; }
 .tag {
-  font-size: 0.82rem; color: var(--muted);
-  background: var(--chip); border: 1px solid var(--line);
-  padding: 0.3rem 0.75rem; border-radius: 99px; white-space: nowrap;
+  font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.85rem; border-radius: 99px;
+  border: 1.5px solid currentColor; white-space: nowrap;
 }
 .status {
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
-  color: #0f2f16; background: #9fe6a8; padding: 0.3rem 0.75rem; border-radius: 99px; white-space: nowrap;
+  font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em;
+  padding: 0.35rem 0.85rem; border-radius: 99px; white-space: nowrap;
 }
-.status.soon { color: #3a2c07; background: #f2d38b; }
-.links { display: flex; gap: 1.25rem; margin-top: 1rem; }
-.links a {
-  color: var(--ink); font-size: 0.92rem; font-weight: 600; text-decoration: none;
-  border-bottom: 2px solid var(--accent); padding-bottom: 2px;
-  display: inline-flex; align-items: center;
+.links { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+.pill-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.92rem; text-decoration: none;
+  padding: 0.6rem 1.35rem; border-radius: 99px;
 }
-.links a:hover { color: var(--accent); }
-.links .soon-note { color: var(--muted); font-size: 0.9rem; font-style: italic; }
+.project .soon-note { font-style: italic; font-size: 0.95rem; opacity: 0.85; }
+/* 卡片配色 */
+.project.p-blue   { background: var(--card-blue); color: #fff; }
+.project.p-red    { background: var(--card-red); color: #fff; }
+.project.p-yellow { background: var(--card-yellow); color: var(--ink); }
+.project.p-pale   { background: var(--card-pale); color: var(--ink); }
+.project.p-blue .desc, .project.p-red .desc { color: rgba(255,255,255,0.85); }
+.project.p-yellow .desc, .project.p-pale .desc { color: #4a4438; }
+.project.p-blue .status, .project.p-red .status { background: #fff; color: var(--ink); }
+.project.p-yellow .status, .project.p-pale .status { background: var(--ink); color: #fff; }
+.project.p-blue .pill-link, .project.p-red .pill-link { background: #fff; color: var(--ink); }
+.project.p-yellow .pill-link, .project.p-pale .pill-link { background: var(--ink); color: #fff; }
+.project .pill-link:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: no-preference) {
+  .project .pill-link { transition: transform 0.18s ease; }
+}
 
-/* --- still making --- */
+/* ---- Still making: 深色面板 ---- */
 .making {
-  display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; align-items: center;
-  background: var(--card); border: 1px solid var(--line); border-radius: 1rem;
-  padding: 1.5rem 1.75rem; margin-top: 2.5rem;
+  margin-top: 1.5rem; border-radius: var(--radius);
+  background: var(--dark); color: #fff;
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; align-items: center; justify-content: space-between;
 }
-.making p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-.making strong { color: var(--ink); }
-.making .tracks { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.making p { margin: 0; color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 30rem; }
+.making strong { color: #fff; font-size: 1.35rem; font-weight: 900; letter-spacing: -0.01em; display: block; margin-bottom: 0.25rem; }
+.making .tracks { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.making .tag { border-color: rgba(255,255,255,0.4); color: #fff; }
 
-/* --- placeholder 卡片 --- */
-.ph-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
-.ph-card {
-  border: 1px dashed var(--line); border-radius: 1rem; padding: 2rem 1.5rem;
-  color: var(--muted); min-height: 12rem;
-  display: flex; flex-direction: column; justify-content: center; gap: 0.5rem;
+/* ---- About / Contact: 纸面大卡片 ---- */
+.sheet {
+  background: #fff; border-radius: var(--radius);
+  padding: clamp(2rem, 4vw, 3.25rem); max-width: 46rem;
 }
-.ph-card strong { color: var(--ink); }
-.ph-card .mono { font-size: 0.8rem; }
+.sheet strong { font-size: 1.3rem; font-weight: 800; display: block; margin-bottom: 0.5rem; }
+.sheet span { color: var(--muted); }
 
-footer.site { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; margin-top: 2rem; }
-footer.site .wrap { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
-footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+/* ---- Footer: 深色 ---- */
+footer.site { background: var(--dark); color: #fff; margin-top: 4rem; border-radius: 2rem 2rem 0 0; }
+footer.site .wrap {
+  display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
+  padding-top: 2.5rem; padding-bottom: 2.5rem;
+}
+footer.site p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0; }
 .motion-toggle {
-  font: inherit; font-size: 0.85rem; cursor: pointer;
-  background: transparent; color: var(--muted);
-  border: 1px solid var(--line); border-radius: 99px;
-  padding: 0.35rem 0.9rem; display: inline-flex; align-items: center;
+  font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  background: transparent; color: rgba(255,255,255,0.75);
+  border: 1.5px solid rgba(255,255,255,0.35); border-radius: 99px;
+  padding: 0.5rem 1.1rem; display: inline-flex; align-items: center;
 }
-.motion-toggle[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+.motion-toggle[aria-pressed="true"] { color: #fff; border-color: #fff; }
 
-@media (max-width: 560px) {
-  .project { grid-template-columns: 1fr; gap: 0.25rem; }
-  .project .num { padding-top: 0; }
+@media (max-width: 620px) {
+  .work-card, .project { grid-template-columns: 1fr; gap: 0.75rem; }
   nav ul { gap: 1rem; }
-  .hero { padding: 3.5rem 0 2.5rem; }
+  header.site .btn { display: none; }
+  .hero { padding: 3.5rem 0 3rem; }
+  .hero .dot { display: none; }
 }
 </style>
 </head>
@@ -152,7 +231,7 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
 
 <header class="site">
   <div class="wrap">
-    <a class="logo mono" href="#top" aria-label="May — home">MAY</a>
+    <a class="logo" href="#top" aria-label="May — home">MAY</a>
     <nav aria-label="Primary">
       <ul>
         <li><a href="#work">Work</a></li>
@@ -161,6 +240,7 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <a class="btn" href="#contact">Say hello</a>
   </div>
 </header>
 
@@ -168,35 +248,57 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
   <div class="wrap">
 
     <div class="hero" id="top">
-      <p class="kicker mono">PORTFOLIO · DRAFT v1</p>
+      <span class="geo ring" aria-hidden="true"></span>
+      <span class="geo dot" aria-hidden="true"></span>
+      <p class="kicker">PORTFOLIO · DRAFT V2</p>
       <h1>May<br>Senior Product Designer</h1>
-      <p>[Hero headline placeholder — one or two lines on what you do and what you're known for. This is the first thing a hiring manager reads in 30 seconds.]</p>
-      <span class="placeholder-note mono">PLACEHOLDER · hero copy TBD</span>
+      <p>[Hero headline placeholder — one or two lines on what you do and what you're known for.]</p>
+      <p><span class="placeholder-note">PLACEHOLDER · hero copy TBD</span></p>
     </div>
 
     <section class="block" id="work" aria-labelledby="work-heading">
+      <p class="section-label">SELECTED WORK</p>
       <div class="section-head">
-        <h2 id="work-heading">Selected Work</h2>
-        <p class="sub">Case studies coming as the site grows.</p>
+        <h2 id="work-heading">Case studies, deep dives.</h2>
+        <p class="sub">Three stories I'm ready to tell in 45 minutes. Details coming as the site grows.</p>
       </div>
-      <div class="ph-grid">
-        <div class="ph-card"><span class="mono">CASE 01</span><strong>[Case study placeholder]</strong><span>Liferay AI Hub / SEO Studio</span></div>
-        <div class="ph-card"><span class="mono">CASE 02</span><strong>[Case study placeholder]</strong><span>Enterprise Search / Query Builder</span></div>
-        <div class="ph-card"><span class="mono">CASE 03</span><strong>[Case study placeholder]</strong><span>AI-ready Design System</span></div>
+      <div class="work-grid">
+        <article class="work-card c-red">
+          <span class="bignum" aria-hidden="true">01</span>
+          <div>
+            <h3>[Case study placeholder]</h3>
+            <p>Liferay AI Hub / SEO Studio — end-to-end, the heaviest AI workflow.</p>
+          </div>
+        </article>
+        <article class="work-card c-blue">
+          <span class="bignum" aria-hidden="true">02</span>
+          <div>
+            <h3>[Case study placeholder]</h3>
+            <p>Enterprise Search / Query Builder — shipped, with business results.</p>
+          </div>
+        </article>
+        <article class="work-card c-yellow">
+          <span class="bignum" aria-hidden="true">03</span>
+          <div>
+            <h3>[Case study placeholder]</h3>
+            <p>AI-ready Design System — staff-level scope, my differentiator.</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="block" id="side-projects" aria-labelledby="sp-heading">
+      <p class="section-label">SIDE PROJECTS</p>
       <div class="section-head">
-        <h2 id="sp-heading">Side Projects</h2>
-        <p class="sub">Still making — one lesson a day.</p>
+        <h2 id="sp-heading">Still making, every day.</h2>
+        <p class="sub">Four daily tracks. They grow while you read this.</p>
       </div>
 
       <ol class="projects">
-        <li class="project">
-          <span class="num mono" aria-hidden="true">01</span>
+        <li class="project p-blue">
+          <span class="bignum" aria-hidden="true">01</span>
           <div>
-            <p class="hook mono">SIDE PROJECT / ONE INTERACTION A DAY</p>
+            <p class="hook">SIDE PROJECT / ONE INTERACTION A DAY</p>
             <h3>Motion Library</h3>
             <p class="desc">Frontend motion, taught one micro-lesson at a time — CSS animation, hover micro-interactions, scroll reveals, then GSAP, Lenis and 3D.</p>
             <div class="meta">
@@ -206,16 +308,16 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
               <span class="status">DAILY</span>
             </div>
             <div class="links">
-              <a href="https://github.com/cjwmay/motion-library">GitHub</a>
-              <a href="https://stackblitz.com/github/cjwmay/motion-library">StackBlitz</a>
+              <a class="pill-link" href="https://github.com/cjwmay/motion-library">GitHub</a>
+              <a class="pill-link" href="https://stackblitz.com/github/cjwmay/motion-library">StackBlitz</a>
             </div>
           </div>
         </li>
 
-        <li class="project">
-          <span class="num mono" aria-hidden="true">02</span>
+        <li class="project p-red">
+          <span class="bignum" aria-hidden="true">02</span>
           <div>
-            <p class="hook mono">SIDE PROJECT / ONE RULE A DAY</p>
+            <p class="hook">SIDE PROJECT / ONE RULE A DAY</p>
             <h3>A11y Playbook</h3>
             <p class="desc">WCAG, translated into designer language — 56 lessons, one a day. Each lesson: one rule, good vs bad examples, how to test, one-line fix.</p>
             <div class="meta">
@@ -225,15 +327,15 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
               <span class="status">DAILY</span>
             </div>
             <div class="links">
-              <a href="https://github.com/cjwmay/a11y-playbook">GitHub</a>
+              <a class="pill-link" href="https://github.com/cjwmay/a11y-playbook">GitHub</a>
             </div>
           </div>
         </li>
 
-        <li class="project">
-          <span class="num mono" aria-hidden="true">03</span>
+        <li class="project p-yellow">
+          <span class="bignum" aria-hidden="true">03</span>
           <div>
-            <p class="hook mono">SIDE PROJECT / THREE ISSUES, ONE FIX EACH</p>
+            <p class="hook">SIDE PROJECT / THREE ISSUES, ONE FIX EACH</p>
             <h3>A11y Roasts</h3>
             <p class="desc">Real products, roasted for accessibility — three issues and a fix per episode. First up: an Airbnb listing page.</p>
             <div class="meta">
@@ -243,23 +345,23 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
               <span class="status">DAILY</span>
             </div>
             <div class="links">
-              <a href="https://github.com/cjwmay/a11y-roasts">GitHub</a>
-              <a href="https://stackblitz.com/github/cjwmay/a11y-roasts">StackBlitz</a>
+              <a class="pill-link" href="https://github.com/cjwmay/a11y-roasts">GitHub</a>
+              <a class="pill-link" href="https://stackblitz.com/github/cjwmay/a11y-roasts">StackBlitz</a>
             </div>
           </div>
         </li>
 
-        <li class="project">
-          <span class="num mono" aria-hidden="true">04</span>
+        <li class="project p-pale">
+          <span class="bignum" aria-hidden="true">04</span>
           <div>
-            <p class="hook mono">SIDE PROJECT / ONE INTERACTION, THREE QUESTIONS</p>
+            <p class="hook">SIDE PROJECT / ONE INTERACTION, THREE QUESTIONS</p>
             <h3>AI Product Teardowns</h3>
             <p class="desc">Trust calibration, graceful degradation, human override — one AI interaction a day. First teardown: GitHub Copilot's ghost text.</p>
             <div class="meta">
               <span class="tag">AI judgment</span>
               <span class="tag">Web</span>
               <span class="tag">中文 + English terms</span>
-              <span class="status soon">SOON</span>
+              <span class="status">SOON</span>
             </div>
             <div class="links">
               <span class="soon-note">Repo launching soon — Day 1 is written, waiting on the repo.</span>
@@ -268,7 +370,7 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
         </li>
       </ol>
 
-      <div class="making" aria-label="Still making">
+      <div class="making on-dark" aria-label="Still making">
         <p><strong>Still making.</strong> These four tracks grow every day — that's the point.</p>
         <div class="tracks">
           <span class="tag">Motion Library · daily</span>
@@ -280,20 +382,22 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
     </section>
 
     <section class="block" id="about" aria-labelledby="about-heading">
+      <p class="section-label">ABOUT</p>
       <div class="section-head">
-        <h2 id="about-heading">About</h2>
+        <h2 id="about-heading">A little about me.</h2>
       </div>
-      <div class="ph-card" style="max-width: 46rem;">
+      <div class="sheet">
         <strong>[About placeholder]</strong>
         <span>Two or three sentences: who you are, what you care about, what you're looking for. Serious about the work — still making things for the fun of it.</span>
       </div>
     </section>
 
     <section class="block" id="contact" aria-labelledby="contact-heading">
+      <p class="section-label">CONTACT</p>
       <div class="section-head">
-        <h2 id="contact-heading">Contact</h2>
+        <h2 id="contact-heading">Let's talk.</h2>
       </div>
-      <div class="ph-card" style="max-width: 46rem;">
+      <div class="sheet">
         <strong>[Contact placeholder]</strong>
         <span>Email / LinkedIn / GitHub links go here.</span>
       </div>
@@ -304,7 +408,7 @@ footer.site p { color: var(--muted); font-size: 0.9rem; margin: 0; }
 
 <footer class="site">
   <div class="wrap">
-    <p class="mono">© 2026 May · Draft v1 — side projects first, the rest follows.</p>
+    <p>© 2026 May · Draft v2 — fuller-inspired, still growing daily.</p>
     <button class="motion-toggle" id="motionToggle" aria-pressed="false">Reduce motion: off</button>
   </div>
 </footer>
