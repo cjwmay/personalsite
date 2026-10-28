@@ -1,0 +1,30 @@
+{
+  "final-ui": {
+    "src": null,
+    "alt": "Final AI Fix review & apply. A complete issue, recommendation, before/after preview, and Apply action."
+  },
+  "journey": {
+    "src": null,
+    "alt": "Research journey artifact. Discover \u2192 Evaluate \u2192 Apply, with evidence attached to each friction point."
+  },
+  "visible-changes": {
+    "src": null,
+    "alt": "Before / after diff. Original content beside the AI suggestion, with changes highlighted."
+  },
+  "recommendation": {
+    "src": null,
+    "alt": "AI recommendation & rationale. The proposed fix, its rationale, and the SEO issue it addresses."
+  },
+  "user-control": {
+    "src": null,
+    "alt": "Review, edit, apply & revert. The review flow and the states before and after applying a fix."
+  },
+  "initial": {
+    "src": null,
+    "alt": "Initial design. The original review experience used in validation."
+  },
+  "iteration": {
+    "src": null,
+    "alt": "Design iteration. The revised experience, connected to a documented finding."
+  }
+}
