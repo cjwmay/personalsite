@@ -7,10 +7,10 @@ Published path: `/seo-studio/`. The homepage's existing **Designing for Trust** 
 From the repository root:
 
 ```sh
-python3 -m http.server 4187 --bind 127.0.0.1 --directory portfolio-watercolor/dist
+python3 -m http.server 4188 --bind 127.0.0.1 --directory portfolio-watercolor/dist
 ```
 
-Open `http://127.0.0.1:4187/seo-studio/`. Use a server rather than opening the HTML file directly, because the asset manifest loads over HTTP. There is no package manager, build step, lint command, or test suite in this static repository. Vercel already publishes `portfolio-watercolor/dist/`; no deployment configuration change is needed.
+Open `http://127.0.0.1:4188/seo-studio/`. Use a server rather than opening the HTML file directly, because the asset manifest loads over HTTP. There is no package manager, build step, lint command, or test suite in this static repository. Vercel already publishes `portfolio-watercolor/dist/`; no deployment configuration change is needed.
 
 ## Design integration
 
@@ -23,11 +23,11 @@ Add approved exports to `dist/seo-studio/images/`, then change the matching `src
 | Manifest key | Required asset | Suggested export |
 | --- | --- | --- |
 | `final-ui` | Final AI Fix review & apply, including issue, recommendation, comparison and Apply action | 2160×1215, 16:9 |
-| `journey` | Actual Discover → Evaluate → Apply research journey, with evidence for friction | 2160×1215, 16:9 |
-| `visible-changes` | Before/after diff with the changed content highlighted | 2160×1350, 16:10 |
-| `recommendation` | Recommendation with contextual SEO rationale | 2160×1350, 16:10 |
-| `user-control` | Review/edit/apply/revert screens or a readable flow composite | 2160×1350, 16:10 |
-| `initial` | Initial design used in validation | 1200×900, 4:3 |
+| `journey` | Persona and Discover & Prioritize → Review & Apply → Verify & Continue journey based on liferay.com | 2160×1215, 16:9 |
+| `review-proposal` | Current SEO issue, Current / Proposed comparison, and rationale for the expected improvement | 2160×1350, 16:10 |
+| `verify-outcome` | Execution status, issue validation, failure handling, and next issue flow | 2160×1350, 16:10 |
+| `user-control` | Target page, affected scope, preview/edit/approval, and recovery; actual scope to confirm | 2160×1350, 16:10 |
+| `initial` | Initial review design and task context to compare | 1200×900, 4:3 |
 | `iteration` | Revised design connected to a documented finding | 1200×900, 4:3 |
 
 All seven manifest entries are deliberately empty. The hero uses a schematic wireframe; the remaining image wells use an image icon. All are labeled placeholders, not product screenshots. Context's Before/Target diagram is authored in HTML and is a workflow framing, not a measured result. On mobile, reserved areas become taller to preserve placeholder readability; real screenshots are contained within them.
@@ -38,16 +38,24 @@ The homepage card is a separate lightweight placeholder in `dist/index.html`. Wh
 
 Edit the clearly marked copy in `dist/seo-studio/index.html`:
 
-- Research: add approved interview notes, dates, participant roles and journey evidence. Until then, Evaluate/Apply friction remains the focus of inquiry, not a claimed finding.
-- Challenge: the three questions are explicitly working hypotheses. Update their status only when supported by evidence.
+- Research: the V3 narrative states that interviews and persona/journey mapping were completed. Add the approved artifacts, interview dates, and participant roles. Missing exports do not mean the research itself was not done.
+- Challenge: Lack of Transparency, Limited Control, and Unclear Outcome are hypotheses developed through a PM/SEO Expert workshop and reference research of Gemini/Claude. Add supporting workshop and comparison artifacts; do not present these as established participant findings.
 - Validation, initial column: observed friction, task and participant context.
 - Validation, iteration column: exact change and the finding that informed it.
 - Validation, quote: verbatim wording, attribution/anonymous participant ID and study context. No invented quote is present.
-- Impact, Review → Apply: baseline, measured conversion, denominator and date range.
-- Impact, Repeat AI usage: cohort definition, repeat-use window, result and date range.
+- Impact, Verified SEO Fixes: baseline, verified issue count, period, and criteria for a resolved issue.
+- Impact, AI-assisted Fix Completion Rate: count started AI Fix workflows that both reach Apply and pass relevant issue validation; add baseline, denominator, period, and result.
+- Impact, process diagnostics: definitions and results for Fix Start, Review Completion, Apply, Workflow Abandonment, Time to Resolution, and Fix Validation Pass Rate.
+- Impact, Repeat AI Fix Usage: cohort definition, repeat-use window, result and date range.
 - Impact, Revert rate: denominator, recovery window, result and interpretation. A low revert rate alone does not prove trust or fix quality.
 
 Metrics are labeled planned. No measured result, uplift, participant count, or research quote has been supplied or inferred.
+
+## Narrative alignment
+
+The page follows the supplied SEO Studio interview script V3. Its success criterion is a verified resolution, not an Apply click. The three solution strategies are understanding the proposal (issue, Current / Proposed, rationale), control before approval, and verification after execution. Execution Success and Issue Resolution remain distinct. All effects on completion, quality, continued use, and business value are planned until supported by actual results. The page keeps seven sections and compresses the interview story rather than reproducing the full script.
+
+`visible-changes` and `recommendation` were renamed to `review-proposal` and `verify-outcome` while all sources were still null. The first new slot combines comparison and rationale; the second restores the outcome-validation strategy.
 
 ## Checks
 
