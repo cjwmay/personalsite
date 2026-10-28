@@ -14,7 +14,7 @@ Open `http://127.0.0.1:4187/seo-studio/`. Use a server rather than opening the H
 
 ## Design integration
 
-The page imports the existing `dist/style.css` and `dist/site.js`, including system typography, semantic light/dark variables, focus treatment, and the theme button. Page-specific rules are scoped in `seo-studio/case-study.css`. `entry.css` only styles the homepage's new preview card. The independent `cjwmay/personalsite-ds` repository was inspected; it currently provides tokens and build/contrast tools, but this portfolio does not import it. This change does not migrate the site or alter that system.
+The page imports the existing `dist/style.css` and `dist/site.js`, including system typography, semantic light/dark variables, focus treatment, and the theme button. Page-specific rules are scoped in `seo-studio/case-study.css`. Each section uses a numbered left rail, a pale visual board on the right, and a short caption beneath the board. The rail stacks above the board on mobile. `entry.css` only styles the homepage's new preview card. The independent `cjwmay/personalsite-ds` repository was inspected; it currently provides tokens and build/contrast tools, but this portfolio does not import it. This change does not migrate the site or alter that system.
 
 ## Replace visual assets
 
@@ -30,7 +30,7 @@ Add approved exports to `dist/seo-studio/images/`, then change the matching `src
 | `initial` | Initial design used in validation | 1200×900, 4:3 |
 | `iteration` | Revised design connected to a documented finding | 1200×900, 4:3 |
 
-All seven manifest entries are deliberately empty. The grayscale wireframes are labeled placeholders, not product screenshots. Context's Before/Target diagram is authored in HTML and is a workflow framing, not a measured result. On mobile, reserved areas become taller to preserve placeholder readability; real screenshots are contained within them.
+All seven manifest entries are deliberately empty. Neutral image wells with an image icon are labeled placeholders, not product screenshots. Context's Before/Target diagram is authored in HTML and is a workflow framing, not a measured result. On mobile, reserved areas become taller to preserve placeholder readability; real screenshots are contained within them.
 
 The homepage card is a separate lightweight placeholder in `dist/index.html`. When the final export is ready, replace `.seo-entry-cover`'s content with an image, include descriptive alt text and intrinsic width/height, and retain its aspect ratio in `entry.css`.
 
