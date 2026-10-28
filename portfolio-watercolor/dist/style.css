@@ -39,3 +39,7 @@
 
 :root[data-theme="dark"] .cover{background:#252724}
 :root[data-theme="dark"] #dotted-artist,:root[data-theme="dark"] #dotted-artist-motion{filter:brightness(.85)}
+
+.organization a{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--ink);font-size:13px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.organization a::after{content:"↗" / "";font-size:12px;text-decoration:none}
+.organization a:hover{text-decoration-thickness:2px}
