@@ -116,9 +116,6 @@
 .principle-number { font-size: 24px; line-height: 1.3; color: var(--muted); font-weight: 300; }
 .principle h3 { font-size: 22px; line-height: 1.3; font-weight: 500; letter-spacing: -.025em; margin: 0 0 12px; }
 .principle-heading p { color: var(--muted); font-size: 13px; max-width: 52ch; line-height: 1.7; }
-.callouts { list-style: none; margin: 20px 0 0; padding: 0; display: flex; gap: 16px 24px; flex-wrap: wrap; }
-.callouts li { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--muted); }
-.callouts span { display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; width: 25px; height: 25px; flex: none; font-size: 10px; font-variant-numeric: tabular-nums; }
 .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .comparison > article { min-width: 0; }
 .comparison h3 { font-size: 16px; font-weight: 500; margin: 0 0 20px; }
@@ -228,4 +225,33 @@ td small { display: block; font-size: 11px; margin-top: 6px; }
   .artifact-columns i { margin-top: 8px; height: 4px; }
   .artifact-bottom { padding-top: 12px; }
   .artifact-bottom span { height: 14px; }
+}
+
+.case-bullets {
+  display: grid;
+  gap: 9px;
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.case-bullets li { padding-left: 3px; }
+.case-bullets li::marker { font-size: .8em; }
+.case-bullets strong { color: var(--ink); font-weight: 500; }
+.section-notes { max-width: 60ch; margin-bottom: 28px; }
+.section-notes h3,
+.section-caption h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.section-caption .evidence-note { margin-top: 14px; }
+.principle-heading .case-bullets { max-width: 54ch; margin-top: 12px; }
+.principle-heading .evidence-note { font-size: 11px; }
+@media (max-width: 640px) {
+  .case-bullets { font-size: 13px; gap: 10px; }
+  .section-notes { margin-bottom: 24px; }
 }
