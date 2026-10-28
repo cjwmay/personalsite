@@ -16,27 +16,53 @@ Open `http://127.0.0.1:4188/seo-studio/`. Use a server rather than opening the H
 
 The page imports the existing `dist/style.css` and `dist/site.js`, including system typography, semantic light/dark variables, focus treatment, and the theme button. Page-specific rules are scoped in `seo-studio/case-study.css`. The full-width hero introduces the project with a large headline, short intro, company/role details and a final UI placeholder. Sections 02–07 use a numbered left rail, a pale visual board on the right, and a short caption beneath the board. The rail stacks above the board on mobile. Specific headings and short bullet lists describe the product scope, research inputs, proposed interactions, validation plan, and planned measurement. Statements about research findings or measured outcomes remain explicitly pending. `entry.css` only styles the homepage's new preview card. The independent `cjwmay/personalsite-ds` repository was inspected; it currently provides tokens and build/contrast tools, but this portfolio does not import it. This change does not migrate the site or alter that system.
 
-## Replace visual assets
+## Asset checklist
 
-Add approved exports to `dist/seo-studio/images/`, then change the matching `src` in `dist/seo-studio/assets.json` from `null` to a relative URL, for example `"images/final-ui.webp"`. Write a useful `alt` description of the real screen. Keep exports legible at the displayed size; use WebP/PNG for UI and SVG/PNG for research diagrams. The page preserves the reserved image area, contains the entire image without cropping, and retains a labeled placeholder if loading fails. Content remains readable without JavaScript.
+The page has **seven visual slots: five design screenshots, one screen recording, and one research diagram**. Each placeholder has a visible type label, matching ID, exact subject, and export specification. The homepage cover reuses D01; it does not need an eighth asset.
 
-| Manifest key | Required asset | Suggested export |
+| ID | Page location | Asset type | What to supply | Format / size | Priority |
+| --- | --- | --- | --- | --- | --- |
+| D01 | Hero | Design screenshot | Final AI Fix review screen with SEO issue, Current / Proposed, rationale, and Apply action | PNG/WebP, 2160×1215, 16:9 | Core |
+| R01 | Research | Research diagram | Journey map based on liferay.com, including Discover & Prioritize → Review & Apply → Verify & Continue; annotate tasks, decisions and evidence | SVG/PNG, 2160×1215, 16:9 | Core |
+| D02 | Solution 01 | Design screenshot | Review detail: current issue, visible content differences, and AI rationale; one screen or annotated composite | PNG/WebP, 2160×1350, 16:10 | Core |
+| V01 | Solution 02 | Screen recording | One example showing target/scope, editing, approval, and available recovery; include only states actually designed | MP4/WebM, 20–40 seconds, 16:10; silent with on-screen labels | Core |
+| D03 | Solution 03 | Design screenshot | Execution and validation states, including resolved/failed outcomes and available next actions; a composite is appropriate | PNG/WebP, 2160×1350, 16:10 | Core |
+| D04 | Validation, initial column | Design screenshot | Earlier design for one specific SEO issue | PNG/WebP, 1200×900, 4:3 | When a documented iteration is available |
+| D05 | Validation, iteration column | Design screenshot | Revised design for the same issue/task as D04, with the actual change annotated | PNG/WebP, 1200×900, 4:3 | When a documented iteration is available |
+
+### Already built in the page
+
+- The Context Before/Target workflow diagram is authored in HTML. No upload is required.
+- The Execution Success / Issue Resolution comparison is also authored in HTML. No upload is required.
+- Existing captions, stage labels and metric hierarchy are page content, not missing image assets.
+
+### Optional supporting exports
+
+These are optional additions, not extra required slots: a persona summary, a PM/SEO Expert workshop synthesis, and a Gemini/Claude comparison sheet. Add them only if they contribute evidence beyond the current journey and bullets.
+
+### Fill the asset manifest
+
+Add approved files inside `dist/seo-studio/images/` or `dist/seo-studio/media/`, then set the matching `src` in `assets.json`. Match the visible ID to the manifest entry:
+
+| ID | Manifest key | Default media type |
 | --- | --- | --- |
-| `final-ui` | Final AI Fix review & apply, including issue, recommendation, comparison and Apply action | 2160×1215, 16:9 |
-| `journey` | Persona and Discover & Prioritize → Review & Apply → Verify & Continue journey based on liferay.com | 2160×1215, 16:9 |
-| `review-proposal` | Current SEO issue, Current / Proposed comparison, and rationale for the expected improvement | 2160×1350, 16:10 |
-| `verify-outcome` | Execution status, issue validation, failure handling, and next issue flow | 2160×1350, 16:10 |
-| `user-control` | Target page, affected scope, preview/edit/approval, and recovery; actual scope to confirm | 2160×1350, 16:10 |
-| `initial` | Initial review design and task context to compare | 1200×900, 4:3 |
-| `iteration` | Revised design connected to a documented finding | 1200×900, 4:3 |
+| D01 | `final-ui` | `image` |
+| R01 | `journey` | `image` |
+| D02 | `review-proposal` | `image` |
+| V01 | `user-control` | `video` |
+| D03 | `verify-outcome` | `image` |
+| D04 | `initial` | `image` |
+| D05 | `iteration` | `image` |
 
-All seven manifest entries are deliberately empty. The hero uses a schematic wireframe; the remaining image wells use an image icon. All are labeled placeholders, not product screenshots. Context's Before/Target diagram is authored in HTML and is a workflow framing, not a measured result. On mobile, reserved areas become taller to preserve placeholder readability; real screenshots are contained within them.
+For an image, set `src` to a relative path such as `images/final-ui.webp` and write a useful `alt`. V01 accepts MP4/WebM and an optional `poster` image. Its player has controls, plays inline, and does not autoplay. If a recording is not available, V01 can use an annotated sequence image: change its `type` to `image`, update its visible type label/category to "Design screenshot", and revise its alt text. Keep the ID so the preparation checklist remains traceable. If using spoken narration, provide equivalent visible text/captions; the recommended clip is silent with on-screen labels.
 
-The homepage card is a separate lightweight placeholder in `dist/index.html`. When the final export is ready, replace `.seo-entry-cover`'s content with an image, include descriptive alt text and intrinsic width/height, and retain its aspect ratio in `entry.css`.
+The media stage reserves space, contains the full asset without cropping, and retains its labeled placeholder on a loading error. The type and ID remain visible after replacement. All seven sources are currently null. The schematic hero and empty image wells are placeholder instructions, not product screenshots.
+
+The homepage card is a lightweight placeholder in `dist/index.html`. Once D01 is ready, reuse that export in `.seo-entry-cover`, with descriptive alt text and intrinsic width/height. Retain its existing aspect ratio.
 
 ## Replace evidence and data
 
-Edit the clearly marked copy in `dist/seo-studio/index.html`:
+These are text/data inputs rather than screenshot requests. The page labels them RESEARCH EVIDENCE NEEDED, QUOTE NEEDED, or DATA NEEDED. Edit the marked copy in `dist/seo-studio/index.html`:
 
 - Research: the V3 narrative states that interviews and persona/journey mapping were completed. Add the approved artifacts, interview dates, and participant roles. Missing exports do not mean the research itself was not done.
 - Challenge: Lack of Transparency, Limited Control, and Unclear Outcome are hypotheses developed through a PM/SEO Expert workshop and reference research of Gemini/Claude. Add supporting workshop and comparison artifacts; do not present these as established participant findings.

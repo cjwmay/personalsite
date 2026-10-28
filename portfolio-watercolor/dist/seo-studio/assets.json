@@ -1,29 +1,58 @@
 {
   "final-ui": {
+    "id": "D01",
+    "category": "Design screenshot",
+    "type": "image",
+    "title": "Final AI Fix review screen",
     "src": null,
     "alt": "Final AI Fix review with the SEO issue, Current / Proposed comparison, rationale, and approval flow."
   },
   "journey": {
+    "id": "R01",
+    "category": "Research diagram",
+    "type": "image",
+    "title": "Journey map \u00b7 liferay.com SEO workflow",
     "src": null,
     "alt": "Persona and journey based on liferay.com: Discover and Prioritize, Review and Apply, Verify and Continue."
   },
   "review-proposal": {
+    "id": "D02",
+    "category": "Design screenshot",
+    "type": "image",
+    "title": "Review details \u00b7 issue, comparison & rationale",
     "src": null,
     "alt": "SEO issue, Current and Proposed content comparison, and rationale for the expected improvement."
   },
   "user-control": {
+    "id": "V01",
+    "category": "Screen recording",
+    "type": "video",
+    "title": "Control flow \u00b7 preview, edit, apply & recover",
     "src": null,
-    "alt": "Target page and affected scope, content editing, approval, and recovery path."
+    "alt": "Target page and affected scope, content editing, approval, and recovery path.",
+    "poster": null
   },
   "verify-outcome": {
+    "id": "D03",
+    "category": "Design screenshot",
+    "type": "image",
+    "title": "Verification states \u00b7 saved, resolved & failed",
     "src": null,
     "alt": "Execution status and issue revalidation, with resolved and failed states and next actions."
   },
   "initial": {
+    "id": "D04",
+    "category": "Design screenshot",
+    "type": "image",
+    "title": "Initial review design",
     "src": null,
     "alt": "Initial AI Fix design for comparison; the actual design and task context are pending."
   },
   "iteration": {
+    "id": "D05",
+    "category": "Design screenshot",
+    "type": "image",
+    "title": "Revised review design",
     "src": null,
     "alt": "AI Fix design iteration linked to a documented observation; design and evidence are pending."
   }
