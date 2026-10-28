@@ -22,11 +22,13 @@
         media.loading = figure.classList.contains('hero-asset') ? 'eager' : 'lazy';
       }
       media.addEventListener(video ? 'loadedmetadata' : 'load', () => {
+        figure.classList.add('asset-ready');
         placeholder.hidden = true;
         status.textContent = `${asset.category} ready`;
       }, { once: true });
       media.addEventListener('error', () => {
         media.remove();
+        figure.classList.remove('asset-ready');
         placeholder.hidden = false;
         status.textContent = 'Asset unavailable · placeholder retained';
         console.error(`Could not load case study asset: ${figure.dataset.asset}`);

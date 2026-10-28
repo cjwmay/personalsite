@@ -83,6 +83,12 @@ The page follows the supplied SEO Studio interview script V3. Its success criter
 
 `visible-changes` and `recommendation` were renamed to `review-proposal` and `verify-outcome` while all sources were still null. The first new slot combines comparison and rationale; the second restores the outcome-validation strategy.
 
+## Motion
+
+The page uses its existing CSS/JavaScript stack with no added dependency. `seo-studio/motion.js` tracks the current reading section with `aria-current="location"`. Pointer-activated section links scroll over 300ms with cubic ease-out; wheel, touch, pointer or keyboard input interrupts the movement. Keyboard activation, modified link clicks and reduced-motion preferences keep native navigation.
+
+Fine-pointer hover feedback uses a 150ms underline/arrow transition. The theme button has a 140ms press response, and loaded media can resolve with a 200ms opacity transition. New transitions are enabled after pointer input and disabled for keyboard input and reduced motion. Theme colors change immediately. The page does not animate text or panels on initial load or during ordinary reading.
+
 ## Checks
 
 Before merging, preview the homepage disclosure, new route, all seven anchor links, keyboard focus, theme button, image replacement/failure, and narrow viewports. Confirm any added research evidence or screenshots are approved for a public portfolio. Existing production files outside the homepage entry are untouched.

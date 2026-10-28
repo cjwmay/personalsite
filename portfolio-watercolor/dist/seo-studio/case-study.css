@@ -316,3 +316,57 @@ td small { display: block; font-size: 11px; margin-top: 6px; }
 @media (forced-colors: active) {
   .placeholder-flag { background: Highlight; color: HighlightText; }
 }
+
+/* Motion follows navigation and control state; reading content stays still. */
+.seo-case { --case-ease-out: cubic-bezier(.215, .61, .355, 1); }
+.case-nav a { position: relative; text-decoration: none; }
+.case-nav a::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 10px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(.65);
+  transform-origin: left;
+  opacity: 0;
+}
+.case-nav a[aria-current="location"]::after,
+.case-nav a:focus-visible::after { transform: scaleX(1); opacity: 1; }
+.case-header .header-actions a > span,
+.link-arrow { display: inline-block; }
+.case-footer > a { gap: 6px; }
+.seo-case #theme:active { transform: none; }
+.asset-stage > img,
+.asset-stage > video { opacity: 0; }
+.asset-ready .asset-stage > img,
+.asset-ready .asset-stage > video { opacity: 1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-case-input="pointer"] .case-nav a::after {
+    transition: transform 150ms var(--case-ease-out), opacity 150ms var(--case-ease-out);
+  }
+  html[data-case-input="pointer"] .seo-case #theme {
+    transition: transform 140ms var(--case-ease-out);
+  }
+  html[data-case-input="pointer"] .seo-case #theme:active { transform: scale(.96); }
+  html[data-case-input="pointer"] .asset-stage > img,
+  html[data-case-input="pointer"] .asset-stage > video {
+    transition: opacity 200ms var(--case-ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    html[data-case-input="pointer"] .case-nav a:hover::after { transform: scaleX(1); opacity: 1; }
+    html[data-case-input="pointer"] .case-header .header-actions a > span,
+    html[data-case-input="pointer"] .link-arrow {
+      transition: transform 150ms var(--case-ease-out);
+    }
+    html[data-case-input="pointer"] .case-header .header-actions a:hover > span { transform: translate(2px, -2px); }
+    html[data-case-input="pointer"] .case-footer a:hover .link-arrow--back { transform: translateX(-2px); }
+    html[data-case-input="pointer"] .case-footer a:hover .link-arrow--up { transform: translateY(-2px); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seo-case *, .seo-case *::before, .seo-case *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
