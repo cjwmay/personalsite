@@ -1,0 +1,30 @@
+{
+  "final-ui": {
+    "src": null,
+    "alt": "Final AI Fix review with the SEO issue, Current / Proposed comparison, rationale, and approval flow."
+  },
+  "journey": {
+    "src": null,
+    "alt": "Persona and journey based on liferay.com: Discover and Prioritize, Review and Apply, Verify and Continue."
+  },
+  "review-proposal": {
+    "src": null,
+    "alt": "SEO issue, Current and Proposed content comparison, and rationale for the expected improvement."
+  },
+  "user-control": {
+    "src": null,
+    "alt": "Target page and affected scope, content editing, approval, and recovery path."
+  },
+  "verify-outcome": {
+    "src": null,
+    "alt": "Execution status and issue revalidation, with resolved and failed states and next actions."
+  },
+  "initial": {
+    "src": null,
+    "alt": "Initial AI Fix design for comparison; the actual design and task context are pending."
+  },
+  "iteration": {
+    "src": null,
+    "alt": "AI Fix design iteration linked to a documented observation; design and evidence are pending."
+  }
+}
